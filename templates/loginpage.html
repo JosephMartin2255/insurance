@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("https://img.freepik.com/free-photo/creative-composition-family-concept-with-copy-space_23-2148485800.jpg?t=st=1719594092~exp=1719597692~hmac=bb4ff72abd0a08561d6970511dcd5e69161c06789995c16074a6af6781ec77ba&w=1380");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            font-family: 'Pacifico', cursive; /* Good font family for Lifecare */
+            font-size: 1.8rem; /* Adjusted font size */
+            color: #018FBB; /* Color for Lifecare text */
+        }
+        .navbar-brand img {
+            height: 50px; /* Adjusted height of the logo */
+            margin-right: 10px; /* Add space between logo and text */
+            border-radius: 50%; /* Make the logo circular */
+        }
+        .nav-link {
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Good font family */
+            font-size: 1.1rem; /* Adjusted font size */
+        }
+        .nav-link:hover {
+            color: tomato !important; /* Hover effect */
+        }
+        .login {
+            width: 90%;
+            max-width: 400px; /* Adjusted max-width for responsiveness */
+            padding: 2rem 0 1rem 0;
+            margin: 150px 0px;
+            margin-left: 350px;
+            background: #fff;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+            
+        }
+        h1 {
+            font-size: 2rem;
+            color: #07001f;
+        }
+        .more{
+            font-family: "verdana, geneva, sans-serif";
+        }
+        p {
+            margin-bottom: 1.7rem;
+            
+        }
+        form input {
+            width: 85%;
+            outline: none;
+            border: none;
+            background: #dfe9f5;
+            padding: 12px 14px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            
+        }
+        .recover {
+            text-align: right;
+            font-size: 0.8rem;
+            margin: 0.2rem 1.7rem 0 0;
+        }
+        .recover a {
+            text-decoration: none;
+            color: #07001f;
+        }
+        button {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            padding: 8px 0;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            width: 85%;
+            background: #018FBB;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background: tomato;
+        }
+        .or {
+            font-size: 0.8rem;
+            margin-top: 1.5rem;
+            
+        }
+        .icons i {
+            color: #07001f;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            margin-left: 0.9rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border: 2px solid #dfe9f5;
+        }
+        .icons i:hover {
+            color: #fff !important;
+            background:tomato;
+            transition: 1s;
+        }
+        .icons i:first-child {
+            color: green;
+        }
+        .icons i:last-child {
+            color: blue;
+        }
+        .not-member {
+            font-size: 0.8rem;
+            margin-top: 1.4rem;
+        }
+        .not-member a {
+            color: #018FBB;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: none;
+            color: tomato;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light";>
+        <a class="navbar-brand" href="#">
+            <img src="https://i.pinimg.com/736x/20/54/9f/20549fd986fc950d947ae993573394eb.jpg" alt="Logo">
+            Lifecare
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'adminhome' %}">Admin<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Agent<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'loginpage' %}">Logout<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="login">
+        <h1>Hello Again!</h1>
+        <p class="more">Welcome back you've <br> been missed!</p>
+        <form>
+            <input type="text" placeholder="Enter username">
+            <input type="password" placeholder="Password">
+            <p class="recover">
+                <a href="#">Recover Password</a>
+            </p>
+        </form>
+        <button>Sign in</button>
+        <p class="or">
+            ----- or continue with -----
+        </p>
+        <div class="icons">
+            <i class="fab fa-google"></i>
+            <i class="fab fa-github"></i>
+            <i class="fab fa-facebook"></i>
+        </div>
+        <div class="not-member">
+            Not a member? <a href="#">Register Now</a>
+        </div>
+    </div>
+</body>
+</html>
